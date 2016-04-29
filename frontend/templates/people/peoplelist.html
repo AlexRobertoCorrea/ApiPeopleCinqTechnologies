@@ -1,0 +1,37 @@
+<div class="center">
+    <h1>Api People Cinq Technologies</h1>
+    <h2 class="alignButton" ng-init="main()">People list</h2>
+
+    <button type="button" class="primary" ui-sref="personnew({})">Create person</button>
+</div>
+
+<br><br><br>
+
+<div style="overflow-x:auto;">
+    <div class="rTable">
+        <div class="rTableRow">
+            <div class="rTableHead"><strong>Name</strong></div>
+            <div class="rTableHead"><span style="font-weight: bold;">Disclosable info</span></div>
+            <div class="rTableHead">&nbsp;</div>
+        </div>
+
+        <div class="rTableRow" ng-repeat="person in people">
+            <div class="rTableCell">{{person.name}}</div>
+            <div class="rTableCell">{{person.disclosableInfo}}</div>
+            <div class="rTableCell">
+                <a href="#" ui-sref="personedit({id: person.id, saved:true})">Edit</a> |
+                <a href="#" ng-click="deleteUser(person)">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+<div class="centerPagination" ng-show="people.length>0&&pageNumber>1">
+    <ul class="pagination">
+        <li><a href="#" ng-click="prevPage()" class="disabled" ng-class="{disabled: currentPage == 1}">«</a></li>
+        <li><a class="disabled">{{currentPage}}/{{pageNumber}}</a></li>
+        <li><a href="#" ng-click="nextPage()" ng-class="{disabled: currentPage == pageNumber}">»</a></li>
+    </ul>
+</div>

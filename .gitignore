@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+frontend/bower_components
+
+#IDEA
+.idea
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Temp
+temp
+.tmp
+
+# Build
+dist
+archive
+.sass-cache
+
+# Other
+version.json

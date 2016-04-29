@@ -1,0 +1,25 @@
+<a href="#" class="container center" ui-sref="peoplelist()">
+    << Back
+</a>
+
+<div ng-show="!confirm" class="container center">
+    <h1>{{edit?'Edit':'New' }} user</h1>
+</div>
+
+<div class="container center">
+    <form>
+        <label>Name <span class="red">*</span></label><br>
+        <input type="text" ng-model="person.name"
+               ng-keyup="$event.keyCode == 13 && person.name? save() : null">
+        <br><br>
+        <label>Disclosable info</label><br>
+        <textarea rows="4" cols="60" ng-model="person.disclosableInfo" ng-keyup="$event.keyCode == 13 && person.name? save() : null"></textarea>
+        <br><br><br>
+        <button type="submit" class="cancel" ui-sref="peoplelist()">
+            Cancel
+        </button>
+        <button ng-disabled="saving||!person.name" type="submit" class="primary" ng-click="save()">
+            Save
+        </button>
+    </form>
+</div>
